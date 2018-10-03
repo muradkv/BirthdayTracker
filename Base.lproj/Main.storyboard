@@ -130,7 +130,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Birthday" id="Yj5-n3-2aa">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MrT-y0-YZQ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xpm-vn-hmP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xpm-vn-hmP">
+                            <connections>
+                                <action selector="saveTapped:" destination="BYZ-38-t0r" id="Xcg-tk-zlj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="birthdayPicker" destination="Fjd-Tl-zpG" id="sNH-WD-PfJ"/>

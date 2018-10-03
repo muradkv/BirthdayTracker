@@ -21,5 +21,20 @@ class AddBirthdayViewController: UIViewController {
         birthdayPicker.maximumDate = Date()
     }
     
+    @IBAction func saveTapped(_ sender: Any) {
+        print("Нажата кнопка сохранения")
+        
+        let firstName = firstNameTextField.text ?? ""
+        let lastName = lastNameTextField.text ?? ""
+        let birthDate = birthdayPicker.date
+        
+        let newBirthday = Birthday(firstName: firstName, lastName: lastName, birthDate: birthDate)
+        
+        print("Созданазаписьо днерождения!")
+        print("Имя: \(newBirthday.firstName)")
+        print("Фамилия: \(newBirthday.lastName)")
+        print("День рождения: \(newBirthday.birthDate)")
+    }
+    
 }
 
