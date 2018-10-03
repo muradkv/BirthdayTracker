@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AddBirthdayViewController: UIViewController {
 
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var birthdayPicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        birthdayPicker.maximumDate = Date()
     }
-
-
+    
 }
 
