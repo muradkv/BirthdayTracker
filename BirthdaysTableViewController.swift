@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BirthdaysTableViewController: UITableViewController {
+class BirthdaysTableViewController: UITableViewController, AddBirthdayViewControllerDelegate {
 
     var birthdays = [Birthday]()
     let dateFormat = DateFormatter()
@@ -19,6 +19,8 @@ class BirthdaysTableViewController: UITableViewController {
         dateFormat.dateStyle = .full
         dateFormat.timeStyle = .none
     }
+    
+    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -38,6 +40,21 @@ class BirthdaysTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let addBirthdayViewController = navigationController.topViewController as! AddBirthdayViewController
+        addBirthdayViewController.delegate = self
+    }
+    
+    // MARK: - AddBirthdayViewControllerDelegate
+    
+    func addBirthdayViewController(_ addBirthdayViewController: AddBirthdayViewController, didAddBirthday birthday: Birthday) {
+        birthdays.append(birthday)
+        tableView.reloadData()
     }
 
     /*
